@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :brands, only: [:index, :show]
+  resources :brands, only: [:index, :show] do
+    resources :products
+  end
 
 end

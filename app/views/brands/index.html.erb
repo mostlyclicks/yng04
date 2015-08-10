@@ -1,7 +1,7 @@
 <h1>Brands</h1>
 <ul>
 <% @brands.each do |brand| %>
-  <%= link_to brand do %>
+  <%= link_to brand, brand_product_path(brand.product.id) do %>
   <li><%= brand.company_name %> - <%= brand.owner_direct_name %> - <%= brand.owner_direct_phone %></li>
   <% end %>
 <% end %>

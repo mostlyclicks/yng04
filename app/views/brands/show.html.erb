@@ -1,4 +1,17 @@
 <h1><%= @brand.company_name %></h1>
 
+<%= link_to 'Add a Product', new_brand_product_path(@brand.id) %><br />
+<%= link_to 'Company Settings', edit_brand_registration_path  %><br />
+<%= link_to 'Sign Out', destroy_brand_session_path, method: :delete %>
+
+
+<% @brand.products.each do |p| %>
+  <h3><%= link_to p.name, brand_product_path(@brand.id, p.id) %></h3>
+  <p><%= p.description.truncate(150) %></p>
+  <hr>
+
+<% end %>
+
+
 
 
