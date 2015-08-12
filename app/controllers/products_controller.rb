@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   before_action :find_brand
-  before_action :find_product, only: [:show]
+  before_action :find_product, only: [:show, :edit, :update, :destroy]
 
 
   def new
@@ -22,6 +22,18 @@ class ProductsController < ApplicationController
 
   end
 
+  def edit
+
+  end
+
+  def update
+    if @product.update product_params
+      redirect_to brand_product_path(@brand, @product), notice: "Product was succesfully updated!"
+    else
+      render 'edit'
+    end
+  end
+
   private
 
     def find_brand
@@ -33,7 +45,7 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name, :description)
+      params.require(:product).permit(:name, :description, :sku)
     end
 
 

@@ -7,7 +7,10 @@
 
 <% @brand.products.each do |p| %>
   <h3><%= link_to p.name, brand_product_path(@brand.id, p.id) %></h3>
-  <p><%= p.description.truncate(150) %></p>
+  <small><% if p.sku.present? %><%= p.sku %><% end %></small>
+  <p><%= p.description.truncate(150) %><br />
+    <%= link_to 'Edit Product', edit_brand_product_path(current_brand.id, p.id) %>
+  </p>
   <hr>
 
 <% end %>

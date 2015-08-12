@@ -4,3 +4,5 @@
 
 <h2><%= @product.name %></h2>
 <p><%= @product.description %></p>
+
+<%= link_to 'Edit Product', edit_brand_product_path(current_brand.id, @product.id) %>
