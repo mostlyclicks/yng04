@@ -4,5 +4,18 @@
 
 <h2><%= @product.name %></h2>
 <p><%= @product.description %></p>
+<p>
+  <b>Retail Price:</b> <%= @product.retail_price %><br />
+  <b>MAP Price:</b> <%= @product.map_price %>
+</p>
+
+
+
+<h4>Color Options:</h4>
+<p><%= @product.color_options %></p>
+
+<h4>Size Options:</h4>
+<p><%= @product.size_options %></p>
+
 
 <%= link_to 'Edit Product', edit_brand_product_path(current_brand.id, @product.id) %>
