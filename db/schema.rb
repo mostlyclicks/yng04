@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813125140) do
+ActiveRecord::Schema.define(version: 20150818150844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150813125140) do
     t.string   "map_price"
     t.text     "color_options"
     t.text     "size_options"
+    t.string   "dropbox_url"
   end
 
   add_index "products", ["brand_id"], name: "index_products_on_brand_id", using: :btree
