@@ -1,8 +1,26 @@
 <h1>Brands</h1>
-<ul>
-<% @brands.each do |brand| %>
-  <%= link_to brand, brand_product_path(brand.product.id) do %>
-  <li><%= brand.company_name %> - <%= brand.owner_direct_name %> - <%= brand.owner_direct_phone %></li>
+Brand Count: <%= @brands.count %> 
+<table class="table table-striped">
+  <tr>
+    <th>Company Name</th>
+    <th>Member Since</th>
+    <th>Owner Name</th>
+    <th>Owner Phone</th>
+    <th>Product Count</th>
+  </tr>
+  <% @brands.each do |b| %>
+    <tr>
+      <td><%= link_to b.company_name, brand_path(b.id) %></td>
+      <td><%= b.created_at.strftime('%D') %></td>
+      <td><%= b.owner_direct_name %></td>
+      <td><%= b.owner_direct_phone %></td>
+      <td><%= b.products.count %></td>
+    </tr>
   <% end %>
-<% end %>
-</ul>
+</table>
+
+  
+  
+  
+
+

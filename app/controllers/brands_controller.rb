@@ -1,7 +1,7 @@
 class BrandsController < ApplicationController
 
   #before_action :authenticate_brand!, only: [:index, :show]
-  before_filter :require_permission
+  before_filter :require_permission, except: :index
   
   def index
     @brands = Brand.all
