@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-
+  before_action :authenticate_brand!
+  before_filter :require_permission
   before_action :find_brand
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
@@ -46,6 +47,14 @@ class ProductsController < ApplicationController
 
     def product_params
       params.require(:product).permit(:name, :description, :sku, :retail_price, :map_price, :color_options, :size_options, :dropbox_url)
+    end
+
+    def require_permission
+      @brand = Brand.find(params[:brand_id])
+      if current_brand != @brand
+        redirect_to root_path, notice: "Sorry you do not have access."
+      end
+
     end
 
 
