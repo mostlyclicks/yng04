@@ -1,0 +1,13 @@
+.actions {
+  margin-bottom:1em;
+}
+
+#company-settings {
+  section {
+    padding:20px 10px 40px 10px;
+    border-bottom:2px dotted #cdcdcd;
+    // &:nth-child(odd) {background-color:rgba(200,200,200,.1);}
+    label {color:rgba(0,0,0,.5);}
+  }
+
+}

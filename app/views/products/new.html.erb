@@ -1,57 +1,24 @@
-<h1>New Product</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+    <h1>New Product</h1>
 
-<%= link_to 'Back to Products', brand_path(current_brand.id)  %>
+    <%= link_to 'Back to Products', brand_path(current_brand.id)  %>
 
+    <%= simple_form_for ([@brand, @product]) do |f| %>
 
-<%= form_for ([@brand, @product]) do |f| %>
-  <%= f.label :name %><br />
-  <%= f.text_field :name %>
+      <%= f.input :name %>
+      <%= f.input :sku %>
+      <%= f.input :retail_price %>
+      <%= f.input :map_price %>
+      <%= f.input :description, input_html: {rows: 8} %>
+      <%= f.input :color_options %>
+      <%= f.input :size_options %>
+      <%= f.input :dropbox_url %>
 
-  <br/>
-  <br/>
-
-  <%= f.label :sku %><br />
-  <%= f.text_field :sku %>
-
-  <br/>
-  <br/>
-
-  <%= f.label :retail_price %><br />
-  <%= f.text_field :retail_price %>
-
-  <br/>
-  <br/>
-
-  <%= f.label :map_price %><br />
-  <%= f.text_field :map_price %>
-
-  <br/>
-  <br/>
-
-  <%= f.label :description %><br />
-  <%= f.text_area :description %>
-
-  <br/>
-  <br/>
-
-  <%= f.label :color_options %><br />
-  <%= f.text_area :color_options %>
-
-  <br/>
-  <br/>
-
-  <%= f.label :size_options %><br />
-  <%= f.text_area :size_options %>
-
-  <br/>
-  <br/>
-
-  <%= f.label :drobox_url %><br />
-  <%= f.text_field :dropbox_url %>
-
-  <br/>
-  <br/>
-
-  <%= f.submit %>
-  
-<% end %>
+      <%= f.submit 'Add Product', class: 'btn btn-lg btn-primary' %>
+      
+    <% end %>
+    </div>
+  </div>
+</div>
