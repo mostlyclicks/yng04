@@ -2,6 +2,7 @@ class BrandsController < ApplicationController
 
   #before_action :authenticate_brand!, only: [:index, :show]
   before_filter :require_permission, except: :index
+  before_filter :authenticate_admin!, only: :index
   
   def index
     @brands = Brand.all
