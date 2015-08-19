@@ -1,29 +1,10 @@
-<h1>Welcome to YNG 
-  <% if admin_signed_in? %>
-    <%= 'Admin' %>
-  <% elsif signed_in? %>
-    <%= current_brand.company_name %>
-  <% end %>
-</h1>
-
-<% unless brand_signed_in? %>
-  <%= link_to 'Sign In', brand_session_path %><br />
-  <%= link_to 'Sign Up', new_brand_registration_path %>
-<% else %>
-  <%= link_to 'Manage Products', brand_path(current_brand.id) %><br />
-  <%= link_to 'Company Settings', edit_brand_registration_path %><br />
-
-
-<% end %>
-
-<%# if current_admin.god_mode? %>
-
-  <p>
+<div class="container">
+  <h1>Welcome to YNG 
     <% if admin_signed_in? %>
-      <%= link_to 'Manage Brands', brands_path %>
-      <%= link_to 'Admin Sign Out', destroy_admin_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Log into Admin', new_admin_session_path %>
+      <%= 'Admin' %>
+    <% elsif signed_in? %>
+      <%= current_brand.company_name %>
     <% end %>
-  </p>
-<%# end %>
+  </h1>
+</div>
+
