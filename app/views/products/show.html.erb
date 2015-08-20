@@ -1,22 +1,45 @@
-<h1>Show</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right"><%= link_to 'Back to Manage Products', brand_path(current_brand.id) %></div><br /><br />
+      <div class="pull-right"><%= link_to 'Edit Product', edit_brand_product_path(current_brand.id, @product.id), class: 'btn btn-primary' %></div>
+      
+      
+      <h1><%= @product.name %></h1>
+    
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      
+<h3>Product description</h3>
+<div class="prod" id="prod-description"><%= @product.description %></div>
 
-<%= link_to 'Manage Products', brand_path(current_brand.id) %>
 
-<h2><%= @product.name %></h2>
-<p><%= @product.description %></p>
-<p>
-  <b>Retail Price:</b> <%= @product.retail_price %><br />
-  <b>MAP Price:</b> <%= @product.map_price %>
-</p>
-
-<h4>Color Options:</h4>
-<p><%= @product.color_options %></p>
-
-<h4>Size Options:</h4>
-<p><%= @product.size_options %></p>
-
-<h4>Dropbox URL:</h4>
+<h4>Dropbox URL (Images, docs, videos):</h4>
 <p><%= @product.dropbox_url %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>Price</h4>
+      <b>Retail:</b> <%= number_to_currency(@product.retail_price.to_f) %><br />
+      <b>MAP:</b> <%= number_to_currency(@product.map_price.to_f) %>
+    </div>
+    <div class="col-md-4">
+      <h4>Color Options</h4>
+      <%= @product.color_options %>
+    </div>
+    <div class="col-md-4">
+      <h4>Size Options</h4>
+      <%= @product.size_options %>
+    </div>
+
+  </div>
+</div>
 
 
-<%= link_to 'Edit Product', edit_brand_product_path(current_brand.id, @product.id) %>
+
+
+
+<%#= link_to 'Edit Product', edit_brand_product_path(current_brand.id, @product.id) %>

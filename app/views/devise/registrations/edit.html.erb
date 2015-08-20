@@ -7,19 +7,20 @@
         <%= devise_error_messages! %>
         
         <section id="general-info">
-        <h3>General Information</h3>      
-                  <%= f.input :company_name %>
-                  <%= f.input :legal_name %>
-                  <%= f.input :dba %>
-                  <%= f.input :billing_address_line_1 %>
-                  <%= f.input :billing_address_line_2 %>
-                  <%= f.input :billing_city %>
-                  <%= f.input :billing_state %>
-                  <%= f.input :billing_zip %>
-                  <%= f.input :billing_phone_number %></section>
-      
+          <h3>General Information</h3>      
+          <%= f.input :company_name %>
+          <%= f.input :legal_name %>
+          <%= f.input :dba %>
+          <%= f.input :billing_address_line_1 %>
+          <%= f.input :billing_address_line_2 %>
+          <%= f.input :billing_city %>
+          <%= f.input :billing_state %>
+          <%= f.input :billing_zip %>
+          <%= f.input :billing_phone_number %>
+        </section>
+
         <section id="bank-info">
-        <h3>Financial Information</h3>
+          <h3>Financial Information</h3>
           <%= f.input :bank_name %>
           <%= f.input :bank_routing_number %>
           <%= f.input :bank_account_number %>
@@ -29,7 +30,7 @@
         </section>
 
         <section id="contact-info">
-        <h3>Contact Information</h3>          
+          <h3>Contact Information</h3>          
           <%= f.input :info_website %>
           <%= f.input :info_hours %>
           <%= f.input :info_company_description, input_html: {rows: 8} %>
@@ -39,14 +40,14 @@
         </section>
 
         <section id="owner-info">
-        <h3>Owner Information</h3>  
+          <h3>Owner Information</h3>  
           <%= f.input :owner_direct_name %>
           <%= f.input :owner_direct_email %>
           <%= f.input :owner_direct_phone %>
         </section>      
                 
         <section id="login-info">      
-        <h3>Login Information</h3>
+          <h3>Login Information</h3>
           <%= f.input :email %>
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -63,7 +64,7 @@
         
       
       <section id="cancel-my-account">
-      <h3>Cancel my account</h3>
+        <h3>Cancel my account</h3>
       
         <p>You can cancel your account any time but doing so will also delete all your uploaded products. Products on the YourNewGear.com store will be deleted within 10 days of deleting your canceling your account. Please contact us if you have any questions.<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
       

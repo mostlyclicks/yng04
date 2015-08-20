@@ -1,19 +1,35 @@
-<h1><%= @brand.company_name %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1><%= @brand.company_name %></h1>
 
-<%= link_to 'Add a Product', new_brand_product_path(@brand.id) %><br />
-<%= link_to 'Company Settings', edit_brand_registration_path  %><br />
-<%= link_to 'Sign Out', destroy_brand_session_path, method: :delete %>
+    <%= link_to 'Add a Product', new_brand_product_path(@brand.id), class: 'btn btn-success' %><br />
+    </div>
 
-
-<% @brand.products.each do |p| %>
-  <h3><%= link_to p.name, brand_product_path(@brand.id, p.id) %></h3>
+  </div>
+  <div class="row">
+    <% @brand.products.each do |p| %>
+<div class="col-md-3">
+  <div class="prod">
+  <h4><%= link_to p.name, brand_product_path(@brand.id, p.id) %></h4>
   <small><% if p.sku.present? %><%= p.sku %><% end %></small>
   <p><%= p.description.truncate(150) %><br />
-    <%= link_to 'Edit Product', edit_brand_product_path(current_brand.id, p.id) %>
+    <%= link_to 'Edit Product', edit_brand_product_path(current_brand.id, p.id), class: 'btn btn-primary btn-sm box-bottom ' %>
   </p>
-  <hr>
-
+  </div>
+</div>
 <% end %>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
 
 
 
